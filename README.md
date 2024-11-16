@@ -2,8 +2,6 @@
 
 Este repósitorio contém uma API Restful feita em Java com Spring Boot, desenvolvida como parte de um teste técnico da Fatto Consultoria e Sistemas. A api permite acesso e manipulação de tarefas por meio de operações CRUD.
 
-Deploy:
-
 ## Tecnologias Usadas
 
 <div align="center">
@@ -12,7 +10,8 @@ Deploy:
 ![Spring Boot 3](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
 ![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Render](https://img.shields.io/badge/Render-000000?style=for-the-badge&logo=render&logoColor=white)
 
 </div>
 
