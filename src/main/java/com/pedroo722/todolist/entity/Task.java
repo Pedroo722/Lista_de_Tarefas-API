@@ -1,6 +1,6 @@
 package com.pedroo722.todolist.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,7 +25,7 @@ public class Task {
     private Double custo;
 
     @Column(name = "data_limite")
-    private Date dataLimite;
+    private LocalDate dataLimite;
 
     @Column(name = "ordem_apresentacao", nullable = false, unique = true)
     private Integer ordemApresentacao;
@@ -33,12 +33,12 @@ public class Task {
     public Long getId() { return id; }
     public String getNomeTarefa() { return nomeTarefa; }
     public Double getCusto() { return custo; }
-    public Date getDataLimite() { return dataLimite; }
+    public LocalDate getDataLimite() { return dataLimite; }
     public Integer getOrdemApresentacao() { return ordemApresentacao; }
 
     public void setId(Long id) { this.id = id; }
     public void setNomeTarefa(String nomeTarefa) { this.nomeTarefa = nomeTarefa; }
     public void setCusto(Double custo) { this.custo = custo; }
-    public void setDataLimite(Date dataLimite) { this.dataLimite = dataLimite; }
+    public void setDataLimite(LocalDate dataLimite) { this.dataLimite = dataLimite; }
     public void setOrdemApresentacao(Integer ordemApresentacao) { this.ordemApresentacao = ordemApresentacao; }
 }
