@@ -34,29 +34,42 @@ public class TaskController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Task> getTaskById(@PathVariable("id") Long id) {
-        Optional<Task> task = taskService.getTaskById(id);
-        return task.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return taskService.getTaskById(id)
+                          .map(ResponseEntity::ok)
+                          .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<Task> createTask(@RequestBody Task task) {
+    public ResponseEntity<?> createTask(@RequestBody Task task) {
+        if (taskService.findTaskByNomeTarefa(task.getNomeTarefa()).isPresent()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                                 .body("Error: Uma tarefa com esse nome já existe.");
+        }
+
         if (task.getOrdemApresentacao() == null) {
             Integer nextOrder = taskService.getNextOrder();
             task.setOrdemApresentacao(nextOrder);
         }
+
         Task savedTask = taskService.saveTask(task);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedTask);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Task> updateTask(@PathVariable("id") Long id, @RequestBody Task task) {
-        if (taskService.getTaskById(id).isPresent()) {
-            task.setId(id);
-            Task updatedTask = taskService.saveTask(task);
-            return ResponseEntity.ok(updatedTask);
-        } else {
+    public ResponseEntity<?> updateTask(@PathVariable("id") Long id, @RequestBody Task task) {
+        if (!taskService.getTaskById(id).isPresent()) {
             return ResponseEntity.notFound().build();
         }
+
+        Optional<Task> existingTaskWithName = taskService.findTaskByNomeTarefa(task.getNomeTarefa());
+        if (existingTaskWithName.isPresent() && !existingTaskWithName.get().getId().equals(id)) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                                 .body("Error: Uma tarefa com esse nome já existe.");
+        }
+
+        task.setId(id);
+        Task updatedTask = taskService.saveTask(task);
+        return ResponseEntity.ok(updatedTask);
     }
 
     @DeleteMapping("/{id}")

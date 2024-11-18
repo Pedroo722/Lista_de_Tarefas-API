@@ -11,6 +11,7 @@ import com.pedroo722.todolist.repository.TaskRepository;
 
 @Service
 public class TaskService {
+
     @Autowired
     private TaskRepository taskRepository;
 
@@ -34,5 +35,10 @@ public class TaskService {
     public void deleteTask(Long id) {
         taskRepository.deleteById(id);
     }
-}
 
+    public Optional<Task> findTaskByNomeTarefa(String nomeTarefa) {
+        return taskRepository.findAll().stream()
+                             .filter(task -> task.getNomeTarefa().equals(nomeTarefa))
+                             .findFirst();
+    }
+}
