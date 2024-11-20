@@ -1,6 +1,6 @@
 # Lista de Tarefas API
 
-Este repósitorio contém uma API Restful feita em Java com Spring Boot, desenvolvida como parte de um teste técnico da Fatto Consultoria e Sistemas. A api permite acesso e manipulação de tarefas por meio de operações CRUD.
+Este repositório contém uma API Restful feita em Java com Spring Boot, desenvolvida como parte de um teste técnico da Fatto Consultoria e Sistemas. A API permite acesso e manipulação de tarefas por meio de operações CRUD.
 
 ## Tecnologias Usadas
 
@@ -61,7 +61,7 @@ Este repósitorio contém uma API Restful feita em Java com Spring Boot, desenvo
 
 A API fornece os seguintes endpoints para a manipulação de dados relacionados a lista de tarefas. Cada endpoint permite uma das operações básicas CRUD.
 
-- **GET** `/api/tasks`: Recupera todos as tarefas.
+- **GET** `/api/tasks`: Recupera todas as tarefas.
 - **GET** `/api/tasks/{id}`: Recupera uma tarefa pelo ID.
 - **POST** `/api/tasks`: Cria uma nova tarefa.
 - **PUT** `/api/tasks/{id}`: Atualiza uma tarefa existente.
