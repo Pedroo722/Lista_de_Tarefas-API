@@ -21,11 +21,12 @@ Este repositório contém uma API Restful feita em Java com Spring Boot, desenvo
 * **Criação de Tarefas**
 * **Edição de Tarefas**
 * **Exclusão de Tarefas**
+* **Re-ordenação de Tarefas**
 
 ## Estrutura dos Arquivos
 
 - **Controllers**: Responsáveis por definir os endpoints da API.
-- **Domain**: Representam as entidades do banco de dados e seus respectivos atributos.
+- **Entity**: Representam as entidades do banco de dados e seus respectivos atributos.
 - **Repositories**: Arquivos que fazem a conexão com o banco de dados.
 - **Services**: Contêm a lógica de negócio para manipular e consultar os dados.
 
@@ -66,6 +67,7 @@ A API fornece os seguintes endpoints para a manipulação de dados relacionados 
 - **POST** `/api/tasks`: Cria uma nova tarefa.
 - **PUT** `/api/tasks/{id}`: Atualiza uma tarefa existente.
 - **DELETE** `/api/tasks/{id}`: Remove uma tarefa pelo ID.
+- **PUT** `/api/tasks/reorder`: Cuida da reordenação das tarefas.
 
 ## Estrutura dos Dados
 ### Tarefa
