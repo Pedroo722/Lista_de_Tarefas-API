@@ -41,4 +41,13 @@ public class TaskService {
                              .filter(task -> task.getNomeTarefa().equals(nomeTarefa))
                              .findFirst();
     }
+
+    public void reorderTasks(List<Task> tasks) {
+        for (int i = 0; i < tasks.size(); i++) {
+            // Atualiza a ordem de cada tarefa conforme o índice na lista
+            Task task = tasks.get(i);
+            task.setOrdemApresentacao(i + 1); // Define a ordem conforme o índice (início em 1)
+            taskRepository.save(task); // Persiste a tarefa com a nova ordem
+        }
+    }
 }

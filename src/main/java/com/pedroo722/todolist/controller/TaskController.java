@@ -81,4 +81,15 @@ public class TaskController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PutMapping("/reorder")
+    public ResponseEntity<String> reorderTasks(@RequestBody List<Task> tasks) {
+        try {
+            taskService.reorderTasks(tasks);
+            return ResponseEntity.status(HttpStatus.OK).body("Ordem de tarefas atualizada com sucesso.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body("Erro ao atualizar ordem de tarefas.");
+        }
+    }
 }
